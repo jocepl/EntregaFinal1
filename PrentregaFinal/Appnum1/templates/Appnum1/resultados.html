@@ -7,6 +7,7 @@
     <title>RESULTADOS</title>
 </head>
 <body>
+    
     <p>Estas buscando el legajo n°: {{legajo}}</p>
 
     {% for colabs in colab %}
@@ -15,6 +16,14 @@
         <li>Nombre: {{colabs.colab_nombre}}</li>
     </ul>
     {% endfor %}
+
+    <!--{% for sellers in seller %}
+            
+                <p>Nombre: {{sellers.seller_nombre}}</p>
+                <p>Categoría: {{sellers.seller_categoria}}</p>
+                <p>Email: {{sellers.seller_email}}</p>
+            
+        {% endfor %}-->
     
 </body>
 </html>

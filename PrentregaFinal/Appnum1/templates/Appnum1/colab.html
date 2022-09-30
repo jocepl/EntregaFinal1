@@ -2,9 +2,19 @@
 
 {% load static %}
 
+
+{% block nav_bar %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'fcolab' %}">REGISTRO TRABAJADORES</a>
+                </li>
+            </ul>
+{% endblock %}
+
+
 {% block titulo %}
 Vendedores
 {% endblock %}
+
 
 {% block section %}
 <section class="page-section portfolio" id="portfolio">
@@ -28,7 +38,7 @@ Vendedores
                 
                     <input type="number" name="legajo" id="legajo">
                     <div class="row justify-content-center">
-                    <input type="submit" value="Buscar">
+                    <input type="submit"  value="Buscar" style="width: 50%; background: #b0ebb3; font-size: 20px; border: none; border-radius: 4px; padding: 4px; color: rgb(0, 0, 0); margin: 16px; font-size: 22px;">
                     </div>
                     
                 </form>
@@ -36,5 +46,28 @@ Vendedores
         </div>
     </body>
 </section>
+{% endblock %}
 
+
+{% block section_contact %}
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h3>Estas buscando el legajo n°: {{legajo}}</h3>
+    <br>
+            <div align ="justify-content-center">
+            <h4>
+            {% for colabs in colab %}
+            
+                <p>Nombre: {{colabs.colab_nombre}}</p>
+                <p>Apellido: {{colabs.colab_apellido}}</p>
+                <p>Edad: {{colabs.colab_edad}}</p>
+                <p>Categoría de venta: {{colabs.colab_categoria_venta}}</p>
+            
+            {% endfor %}
+            </h4>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

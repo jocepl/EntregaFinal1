@@ -3,13 +3,35 @@
 {% load static %}
 
 
+{% block nombrepestaña%}
+Inicio
+{% endblock %}
+
+
+{% block nav_bar %}
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">SERVICIOS</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">A CERCA DE</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">CONTACTO</a>
+                </li>
+                <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'fbuyer' %}">REGISTRO COMPRADORES</a>
+                </li>
+            </ul>
+{% endblock %}
+
+
+
 {% block titulo %}
 Proyecto Final - 1ra Entrega
 {% endblock %}
 
+
 {% block nombre %} 
 Jocelyne Paradas
 {% endblock %}
+
 
 {% block section %}
         <section class="page-section portfolio" id="portfolio">
@@ -61,11 +83,11 @@ Jocelyne Paradas
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image--><a title="Compradores" href="formulario2">
+                                    <!-- Portfolio Modal - Image--><a title="Vendedores" href="{% url 'vendedores' %}">
                                                                     <img class="img-fluid rounded mb-5" src="{% static 'Appnum1/assets/img/portfolio/Nuevo proyecto (4).png' %}" alt="New Image"/>
                                                                     </a>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Acá puedes empezar tu compra</p>
+                                    <p class="mb-5">Presiona el carrito para registrar el vendedor.</p>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Cerrar</button>
                                 </div>
                             </div>
@@ -90,11 +112,11 @@ Jocelyne Paradas
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <!-- Portfolio Modal - Image--> <a title="Vendedores" href="formulario1">
+                                    <!-- Portfolio Modal - Image--> <a title="Vendedores" href="{% url 'Trabajadores' %}">
                                                                     <img class="img-fluid rounded mb-5" src="{% static 'Appnum1/assets/img/portfolio/Nuevo proyecto (3).png' %}" alt="New Image"/>
                                                                     </a>
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Acá puedes dejar tus datos de contacto</p>
+                                    <p class="mb-5">Presiona el ícono para registrar al trabajador.</p>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Cerrar</button>
                                 </div>
                             </div>
@@ -121,8 +143,8 @@ Jocelyne Paradas
         </div>
         <!-- About Section Content-->
         <div class="row">
-            <div class="container d-flex align-items-center flex-column">
-                <p class="pre-wrap lead">Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
+            <div class="container d-flex align-items-center flex-column text-center">
+                <p class="pre-wrap lead"><h3>El objetivo de esta pagina es registrar todos los compradores, vendedores y trabajadores del sitio.</h3></p>
             </div>
             </div>
     </div>

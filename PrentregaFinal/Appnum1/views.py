@@ -33,6 +33,7 @@ def colabformulario(request):
         formulario1 = ColabFormulario()
     return render(request, "Appnum1/formu_colab.html", {"form1":formulario1})
 
+
 def buyerformulario(request):
     if request.method == "POST":
         formulario2 = BuyerFormulario(request.POST)
@@ -53,7 +54,7 @@ def sellerformulario(request):
             info3 = formulario3.cleaned_data
             vendedor = sellers(seller_nombre = info3["nombre"],seller_categoria= info3["categoria"], seller_email=info3["email"])
             vendedor.save()
-            return render(request, "Appnum1/inicio.html")
+            return render(request, "Appnum1/seller.html")
     else:
         formulario3 = SellerFormulario()
     return render(request, "Appnum1/formu_seller.html", {"form3":formulario3})
@@ -63,7 +64,6 @@ def sellerformulario(request):
 def busquedalejago(request):
     return render(request, "Appnum1/inicio.html")
 
-
 def resultados(request):
 
     if request.GET["legajo"]:
@@ -71,8 +71,24 @@ def resultados(request):
         legajo = request.GET["legajo"]
         colab = colabs.objects.filter(colab_legajo__iexact = legajo)
 
-        return render(request, "Appnum1/resultados.html", {"legajo":legajo, "colab":colab})
+        return render(request, "Appnum1/colab.html", {"legajo":legajo, "colab":colab})
     else:
         respuesta = "Debes colocar el legajo del trabajador."
     
     return HttpResponse(respuesta)
+
+
+def busquedaseller(request):
+    return render(request, "Appnum1/inicio.html")
+
+def resultadoseller(request):
+
+    if request.GET["nombre"]:
+
+        nombre = request.GET["nombre"]
+        seller = sellers.objects.filter(seller_nombre__icontains = nombre)
+        return render(request, "Appnum1/seller.html", {"nombre":nombre, "seller":seller})
+    
+    else:
+        respuesta1 = "Debes colocar el nombre del vendedor."
+    return HttpResponse(respuesta1)
